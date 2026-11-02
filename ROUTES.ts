@@ -4,6 +4,7 @@ const ROUTES={
     MINIFIER: '/minifier',
     CONVERTER: '/typescript-converter',
     VALIDATOR: '/validator',
+    HOME: '/',
 };
 
 export default ROUTES;
