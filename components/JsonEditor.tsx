@@ -1,10 +1,23 @@
 "use client";
 
+import { formatJSON } from "@/lib/json/formatJSON";
 import React, { useState } from "react";
 
 function JsonEditor() {
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
+
+  const clickHandler=()=>{
+     const result= formatJSON(input);
+
+     if(!result){
+      throw new Error("Something went wrong");
+     }
+
+     setOutput(result);
+  }
+
+    
 
   return (
     <div className="w-full space-y-8">
@@ -46,6 +59,7 @@ function JsonEditor() {
       </div>
       <div className="flex justify-end">
         <button
+        onClick={clickHandler}
           type="button"
           className="rounded-lg bg-blue-600 px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-blue-700 hover:shadow-md active:scale-95 dark:bg-blue-500 dark:hover:bg-blue-600"
         >
