@@ -11,7 +11,7 @@ interface ToolCardProps {
 
 function ToolCard({title, description, href,icon} : ToolCardProps) {
   return (
-    <div className=" my-5 mx-5 group w-full max-w-sm rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-400 hover:shadow-lg dark:border-gray-800 dark:bg-gray-950 dark:hover:border-blue-500">
+    <div className="  group w-full max-w-sm rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-400 hover:shadow-lg dark:border-gray-800 dark:bg-gray-950 dark:hover:border-blue-500">
       <div className="flex flex-col gap-4">
         <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600 dark:bg-blue-500/10 dark:text-blue-400">
           {icon}

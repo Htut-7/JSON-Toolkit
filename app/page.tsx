@@ -1,6 +1,7 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import ToolCard from "@/components/ToolCard";
+import Hero from "@/components/Hero";
 import ROUTES from "@/ROUTES";
 import { VscJson } from "react-icons/vsc";
 import { MdOutlineFactCheck, MdCompress, MdCompareArrows } from "react-icons/md";
@@ -45,6 +46,9 @@ export default function Home() {
     <div className="flex min-h-screen flex-col bg-white dark:bg-gray-950">
       <Navbar />
       <main className="flex-1 px-6 py-12">
+        <section>
+          <Hero/>
+        </section>
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {tools.map((tool,i)=>(
           <ToolCard key={i} title={tool.title} description={tool.description} href={tool.href} icon={tool.icon}/>
