@@ -6,15 +6,22 @@ import React, { useState } from "react";
 function JsonEditor() {
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
+  const [error,setError]=useState("");
 
   const clickHandler=()=>{
-     const result= formatJSON(input);
+     try{
+      const result= formatJSON(input);
 
      if(!result){
       throw new Error("Something went wrong");
      }
 
      setOutput(result);
+     }catch(error){
+        if(error instanceof Error && error.message==="Add JSON data first"){
+          setError(error.message);
+        }
+     }
   }
 
     
@@ -57,6 +64,9 @@ function JsonEditor() {
           />
         </div>
       </div>
+
+      {error && <p className="text-sm text-red-500">{error}</p>}
+
       <div className="flex justify-end">
         <button
         onClick={clickHandler}

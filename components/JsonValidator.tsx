@@ -5,25 +5,25 @@ import { validator } from "@/lib/json/validator";
 
 function JsonValidator() {
   const [validate, setValidate] = useState("");
-  const [success,setSuccess]=useState(false);
-  const [error,setError]=useState("");
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
 
-  const validateHandler=()=>{
-    try{
-        const result=validator(validate);
+  const validateHandler = () => {
+    try {
+      const result = validator(validate);
 
-    setSuccess(result);
-    setError("");
-    }catch(error){
-        setSuccess(false);
-        
-        if(error instanceof Error && error.message==="Please add JSON data"){
-            setError(error.message);
-        }else{
-            setError("Invalid JSON");
-        }
+      setSuccess(result);
+      setError("");
+    } catch (error) {
+      setSuccess(false);
+
+      if (error instanceof Error && error.message === "Please add JSON data") {
+        setError(error.message);
+      } else {
+        setError("Invalid JSON");
+      }
     }
-  }
+  };
 
   return (
     <div className="w-full space-y-8">
@@ -44,7 +44,9 @@ function JsonValidator() {
         <textarea
           placeholder="Click here to start editing JSON"
           onChange={(e) => {
-            setValidate(e.target.value); setSuccess(false); setError("");
+            setValidate(e.target.value);
+            setSuccess(false);
+            setError("");
           }}
           value={validate}
           className="min-h-[320px] w-full resize-y rounded-xl border border-gray-200 bg-gray-50 p-4 font-mono text-sm leading-6 text-gray-800 outline-none transition-all placeholder:text-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200 dark:placeholder:text-gray-600 dark:focus:border-blue-400"
@@ -53,11 +55,11 @@ function JsonValidator() {
 
       {success ? (
         <div>
-            <p className="text-sm text-green-500">Valid JSON</p>
+          <p className="text-sm text-green-500">Valid JSON</p>
         </div>
-      ): (
+      ) : (
         <div>
-            <p className="text-sm text-red-500">{error}</p>
+          <p className="text-sm text-red-500">{error}</p>
         </div>
       )}
 
