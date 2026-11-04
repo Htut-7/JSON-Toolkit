@@ -3,6 +3,7 @@
 import { minifier } from "@/lib/json/minifier";
 import React, { useState } from "react";
 import CopyButton from "./CopyButton";
+import DownloadButton from "./DownloadButton";
 
 function JsonMinifier() {
   const [input, setInput] = useState("");
@@ -62,7 +63,10 @@ function JsonMinifier() {
               Expected Output
             </label>
 
-            <CopyButton text={output}/>
+            <div className="flex justify-between gap-5">
+              <CopyButton text={output} />
+              <DownloadButton text={output}/>
+            </div>
           </div>
 
           <textarea
