@@ -2,6 +2,7 @@
 
 import { minifier } from "@/lib/json/minifier";
 import React, { useState } from "react";
+import CopyButton from "./CopyButton";
 
 function JsonMinifier() {
   const [input, setInput] = useState("");
@@ -38,21 +39,32 @@ function JsonMinifier() {
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         <div className="flex flex-col">
-          <label className="mb-3 text-sm font-semibold text-gray-800 dark:text-gray-200">
-            JSON Input
-          </label>
+          <div className="mb-3 flex h-8 items-center justify-between">
+            <label className="text-sm font-semibold text-gray-800 dark:text-gray-200">
+              JSON Input
+            </label>
+          </div>
+
           <textarea
             placeholder='Place your JSON here... e.g., {"name":"John Doe","age":30}'
-            onChange={(e) => {setInput(e.target.value); setError("")}}
+            onChange={(e) => {
+              setInput(e.target.value);
+              setError("");
+            }}
             value={input}
             className="min-h-[320px] w-full resize-y rounded-xl border border-gray-300 bg-white p-4 font-mono text-sm leading-6 text-gray-900 shadow-sm outline-none transition placeholder:text-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 dark:placeholder:text-gray-500"
           />
         </div>
 
         <div className="flex flex-col">
-          <label className="mb-3 text-sm font-semibold text-gray-800 dark:text-gray-200">
-            Expected Output
-          </label>
+          <div className="mb-3 flex h-8 items-center justify-between">
+            <label className="text-sm font-semibold text-gray-800 dark:text-gray-200">
+              Expected Output
+            </label>
+
+            <CopyButton text={output}/>
+          </div>
+
           <textarea
             placeholder="Minify JSON will appear here..."
             readOnly
