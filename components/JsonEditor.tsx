@@ -2,29 +2,28 @@
 
 import { formatJSON } from "@/lib/json/formatJSON";
 import React, { useState } from "react";
+import CopyButton from "./CopyButton";
 
 function JsonEditor() {
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
-  const [error,setError]=useState("");
+  const [error, setError] = useState("");
 
-  const clickHandler=()=>{
-     try{
-      const result= formatJSON(input);
+  const clickHandler = () => {
+    try {
+      const result = formatJSON(input);
 
-     if(!result){
-      throw new Error("Something went wrong");
-     }
+      if (!result) {
+        throw new Error("Something went wrong");
+      }
 
-     setOutput(result);
-     }catch(error){
-        if(error instanceof Error && error.message==="Add JSON data first"){
-          setError(error.message);
-        }
-     }
-  }
-
-    
+      setOutput(result);
+    } catch (error) {
+      if (error instanceof Error && error.message === "Add JSON data first") {
+        setError(error.message);
+      }
+    }
+  };
 
   return (
     <div className="w-full space-y-8">
@@ -39,9 +38,11 @@ function JsonEditor() {
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <div className="flex flex-col gap-3">
-          <label className="text-sm font-semibold text-gray-700 dark:text-gray-200">
-            Input JSON
-          </label>
+          <div className="mb-3 flex h-8 items-center justify-between">
+            <label className="text-sm font-semibold text-gray-800 dark:text-gray-200">
+              JSON Input
+            </label>
+          </div>
 
           <textarea
             placeholder='Place your JSON here... e.g., {"name":"John Doe","age":30}'
@@ -52,9 +53,13 @@ function JsonEditor() {
         </div>
 
         <div className="flex flex-col gap-3">
-          <label className="text-sm font-semibold text-gray-700 dark:text-gray-200">
-            Expected Output
-          </label>
+          <div className="mb-3 flex h-8 items-center justify-between">
+            <label className="text-sm font-semibold text-gray-800 dark:text-gray-200">
+              Expected Output
+            </label>
+
+            <CopyButton text={output} />
+          </div>
 
           <textarea
             value={output}
@@ -69,7 +74,7 @@ function JsonEditor() {
 
       <div className="flex justify-end">
         <button
-        onClick={clickHandler}
+          onClick={clickHandler}
           type="button"
           className="rounded-lg bg-blue-600 px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-blue-700 hover:shadow-md active:scale-95 dark:bg-blue-500 dark:hover:bg-blue-600"
         >
