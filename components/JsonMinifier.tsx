@@ -27,6 +27,12 @@ function JsonMinifier() {
     }
   };
 
+  const clearHandler = () => {
+    setInput("");
+    setOutput("");
+    setError("");
+  };
+
   return (
     <div className="mx-auto w-full max-w-5xl px-4 py-10 sm:px-6 lg:py-16">
       <div className="mb-8 text-center">
@@ -65,7 +71,7 @@ function JsonMinifier() {
 
             <div className="flex justify-between gap-5">
               <CopyButton text={output} />
-              <DownloadButton text={output}/>
+              <DownloadButton text={output} />
             </div>
           </div>
 
@@ -80,7 +86,15 @@ function JsonMinifier() {
 
       {error && <p className="text-sm text-red-500">{error}</p>}
 
-      <div className="mt-7 flex justify-end">
+      <div className="mt-7 flex justify-end gap-5">
+        <button
+          onClick={clearHandler}
+          type="button"
+          className="rounded-lg bg-blue-600 px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-blue-700 hover:shadow-md active:scale-95 dark:bg-blue-500 dark:hover:bg-blue-600"
+        >
+          Clear
+        </button>
+
         <button
           onClick={minifyHandler}
           type="button"

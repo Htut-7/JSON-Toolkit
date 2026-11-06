@@ -26,6 +26,12 @@ function JsonEditor() {
     }
   };
 
+  const clearHandler=()=>{
+    setInput("");
+    setOutput("");
+    setError("");
+  }
+
   return (
     <div className="w-full space-y-8">
       <div className="space-y-2">
@@ -76,7 +82,12 @@ function JsonEditor() {
 
       {error && <p className="text-sm text-red-500">{error}</p>}
 
-      <div className="flex justify-end">
+      <div className="flex justify-end gap-5">
+
+        <button type="button" onClick={clearHandler} className="rounded-lg bg-blue-600 px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-blue-700 hover:shadow-md active:scale-95 dark:bg-blue-500 dark:hover:bg-blue-600">
+          Clear
+        </button>
+
         <button
           onClick={clickHandler}
           type="button"
