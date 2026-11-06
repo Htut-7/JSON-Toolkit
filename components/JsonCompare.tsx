@@ -1,5 +1,6 @@
 "use client";
 
+import { comparer } from "@/lib/json/comparer";
 import React, { useState } from "react";
 
 function JsonCompare() {
@@ -7,6 +8,30 @@ function JsonCompare() {
   const [inputB, setInputB] = useState("");
   const [output, setOutput] = useState("");
   const [error, setError] = useState("");
+
+  const compareHandler = () => {
+    try {
+      const result = comparer(inputA, inputB);
+
+      if (!result) {
+        throw new Error("Something went wrong");
+      }
+
+      setOutput(result);
+      setError("");
+    } catch (error) {
+      if (error instanceof Error && error.message === "Invalid JSON format") {
+        setError(error.message);
+      }
+    }
+  };
+
+  const clearHandler = () => {
+    setInputA("");
+    setInputB("");
+    setOutput("");
+    setError("");
+  };
 
   return (
     <div className="w-full space-y-8">
@@ -42,11 +67,6 @@ function JsonCompare() {
             <label className="text-sm font-semibold text-gray-800 dark:text-gray-200">
               Modified JSON
             </label>
-
-            {/* <div className="flex justify-between gap-5">
-                  <CopyButton text={output} />
-                  <DownloadButton text={output}/>
-                </div> */}
           </div>
 
           <textarea
@@ -60,19 +80,30 @@ function JsonCompare() {
         </div>
       </div>
 
-      {/* {error && <p className="text-sm text-red-500">{error}</p>} */}
+      {error && <p className="text-sm text-red-500">{error}</p>}
 
-      {output && <div>
-        <h3>Comparison results</h3>
-        <textarea
-          className="min-h-[200px] w-full resize-y rounded-xl border border-gray-200 bg-gray-50 p-4 font-mono text-sm dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200"
-          readOnly
-          value={output}
-        />
-      </div>}
+      {output && (
+        <div>
+          <h3>Comparison results</h3>
+          <textarea
+            className="min-h-[200px] w-full resize-y rounded-xl border border-gray-200 bg-gray-50 p-4 font-mono text-sm dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200"
+            readOnly
+            value={output}
+          />
+        </div>
+      )}
 
-      <div className="flex justify-end">
+      <div className="flex justify-end gap-5">
         <button
+          onClick={clearHandler}
+          type="button"
+          className="rounded-lg bg-blue-600 px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-blue-700 hover:shadow-md active:scale-95 dark:bg-blue-500 dark:hover:bg-blue-600"
+        >
+          Clear
+        </button>
+
+        <button
+          onClick={compareHandler}
           type="button"
           className="rounded-lg bg-blue-600 px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-blue-700 hover:shadow-md active:scale-95 dark:bg-blue-500 dark:hover:bg-blue-600"
         >
