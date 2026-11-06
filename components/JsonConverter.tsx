@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 import CopyButton from "./CopyButton";
-import DownloadButton from "./DownloadButton";
 import { converter } from "@/lib/json/typescript-converter";
+import TsDownload from "./tsDownload";
 
 function JsonConverter() {
   const [input, setInput] = useState("");
@@ -74,7 +74,7 @@ function JsonConverter() {
 
             <div className="flex justify-between gap-5">
               <CopyButton text={output} />
-              <DownloadButton text={output} />
+              <TsDownload text={output} />
             </div>
           </div>
 
