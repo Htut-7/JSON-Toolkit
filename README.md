@@ -1,36 +1,147 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# JSON Toolkit
+
+A collection of powerful and easy-to-use tools for formatting, validating, minifying, converting, and comparing JSON data.
+
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge)](https://json-toolkit-seven.vercel.app/)
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?style=for-the-badge&logo=tailwindcss)](https://tailwindcss.com/)
+
+## Overview
+
+JSON Toolkit is a web-based application that provides essential utilities for working with JSON data in one place. It helps developers format, validate, minify, convert, and compare JSON without needing multiple tools.
+
+The application features a clean, responsive interface with light and dark mode support.
+
+**Live Demo:** https://json-toolkit-seven.vercel.app/
+
+## Features
+
+### JSON Formatter
+- Format JSON data with proper indentation.
+- Improve JSON readability and structure.
+- Copy formatted JSON to the clipboard.
+- Download formatted JSON files.
+
+### JSON Validator
+- Validate JSON syntax.
+- Identify invalid JSON data.
+- Display validation errors.
+
+### JSON Minifier
+- Remove unnecessary whitespace from JSON.
+- Generate compact JSON output.
+- Reduce JSON file size.
+
+### JSON to TypeScript Converter
+- Convert JSON data into TypeScript interfaces.
+- Generate TypeScript types based on JSON values.
+- Copy or download generated TypeScript code.
+
+### JSON Compare
+- Compare two JSON objects.
+- Identify added and removed properties.
+- Detect modified values.
+- Display differences between JSON documents.
+
+### Additional Features
+- Responsive design.
+- Light and dark mode.
+- Clipboard copy functionality.
+- File download functionality.
+- Simple and intuitive user interface.
+
+## Tech Stack
+
+| Technology | Description |
+|---|---|
+| Next.js 15 | React framework |
+| React 19 | UI library |
+| TypeScript | Programming language |
+| Tailwind CSS 4 | CSS framework |
+| JavaScript | Application logic |
+| Vercel | Deployment platform |
 
 ## Getting Started
 
-First, run the development server:
+Follow these instructions to run the project locally.
+
+### Prerequisites
+
+- Node.js
+- npm
+- Git
+
+### Installation
+
+**1. Clone the repository**
+
+```bash
+git clone https://github.com/Htut-7/JSON-Toolkit.git
+```
+
+**2. Navigate to the project directory**
+
+```bash
+cd JSON-Toolkit
+```
+
+**3. Install dependencies**
+
+```bash
+npm install
+```
+
+**4. Start the development server**
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**5. Open the application**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Visit [http://localhost:3000](http://localhost:3000) in your browser.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
 
-## Learn More
+```text
+JSON-Toolkit/
+├── app/
+│   ├── formatter/
+│   ├── validator/
+│   ├── minifier/
+│   ├── converter/
+│   └── compare/
+├── components/
+├── lib/
+│   └── json/
+├── public/
+├── package.json
+└── README.md
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Learning Objectives
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project was developed to improve practical frontend and full-stack development skills through building a real-world utility application.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Building reusable React components.
+- Managing state with React Hooks.
+- Working with JSON parsing and manipulation.
+- Implementing error handling and input validation.
+- Creating reusable TypeScript utility functions.
+- Working with browser APIs such as Clipboard API and Blob.
+- Building responsive interfaces with Tailwind CSS.
+- Deploying Next.js applications using Vercel.
 
-## Deploy on Vercel
+## Author
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Sithu Htut**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[![GitHub](https://img.shields.io/badge/GitHub-Htut--7-181717?style=flat&logo=github)](https://github.com/Htut-7)
+
+[![Portfolio](https://img.shields.io/badge/Portfolio-Visit-blue?style=flat)](https://sithuhtut-portfoliovercelapp.vercel.app/)
+
+---
+
+If you find this project useful, feel free to give it a star.
