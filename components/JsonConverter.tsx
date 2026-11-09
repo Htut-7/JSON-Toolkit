@@ -103,7 +103,7 @@ function JsonConverter() {
           type="button"
           className="rounded-lg bg-blue-600 px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-blue-700 hover:shadow-md active:scale-95 dark:bg-blue-500 dark:hover:bg-blue-600"
         >
-          Format JSON
+          Convert TypeScript
         </button>
       </div>
     </div>
